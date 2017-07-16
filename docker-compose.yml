@@ -9,6 +9,7 @@
 #  - as noted above, for the Jenkins URL use an IP address as new containers won't have DNS to resolve hostnames (why not?)
 #  - the logging works :-)  You can see STDOUT and STDERR from the slave launch process in the Mesos sandbox.  need to figure out what they did.
 #  - Need to investigate slave provisioning strategy.
+#  - the Jenkins image provided didn't retain plugin config if the container was restarted (despite using a valume).  No idea why, so switched the image.
 
 version: '2'
 
