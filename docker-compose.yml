@@ -3,13 +3,14 @@
 # After start Jenkins will be available in localhost:8080
 # The Jenkins URL in the Mesos plugin needs to be set to an IP accessible from new docker containers http://IP:8080
 
-# Additional notes:
+# Additional notes (timw):
 #  - use Zookeeper URL for Mesos URL in plugin configuration (e.g. zk://zookeeper:2181/mesos)
 #  - only works with Docker slaves.  The slave jar will fail to start because the MESOS_SANDBOX env. variable is not set)
 #  - as noted above, for the Jenkins URL use an IP address as new containers won't have DNS to resolve hostnames (why not?)
 #  - the logging works :-)  You can see STDOUT and STDERR from the slave launch process in the Mesos sandbox.  need to figure out what they did.
-#  - Need to investigate slave provisioning strategy.
-#  - the Jenkins image provided didn't retain plugin config if the container was restarted (despite using a valume).  No idea why, so switched the image.
+#  - Need to investigate slave provisioning strategy.  I added the additional options for a more 'aggressive' strategy.
+#  - the Jenkins image provided didn't retain plugin config if the container was restarted (despite using a volume).  No idea why, so switched the image.
+#  - not sure what Marathon is used for...
 
 version: '2'
 
