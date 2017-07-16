@@ -72,4 +72,10 @@ services:
     environment:
       JAVA_OPTS: "-Dhudson.slaves.NodeProvisioner.initialDelay=0"
     volumes:
-      - ./jenkins_home:/var/jenkins_home
+      - jenkins-data:/var/jenkins_home
+
+# external volume: create with:
+#   docker volume create --name=jenkins-data
+volumes:
+  jenkins-data:
+    external: true
